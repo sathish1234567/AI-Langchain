@@ -19,10 +19,11 @@ Setup
 To access Google AI models you’ll need to create a Google Account, get a Google AI API key, and install the langchain-google-genai integration package.
 Ex: api key - 1234567890ABCDEFGHJKL
 
-Step-2 : Export the key to OS enviroment.
+
+Step-3 : Export the key to OS enviroment.
          import os
          os.environ['GEMINI_API_KEY'] = "1234567890ABCDEFGHJKL"
 
-
+Step-4 : implement the small model
 
           
