@@ -1,0 +1,20 @@
+Langchain Introuduction:
+
+What is langchain?
+-  Lngchain is a frmework that helps developers build generative ai Applications using LLM model.
+-  It provides a structured way to incorporate prompts and generate LLMs, making it easier to build intelligent and interactive applications.
+-  Used to implement the generative ai apps.
+
+How to Build the ai agent using langchain:?
+
+Step-1 - Install the langchain framework. --> pip install langchain
+Step-2 - Install the any AI related -LLMs  to install. (OPENAI/GEMEINI AI)
+         For open ai --> pip install openai
+         for gemini AI- --> pip install langchain-google-genai. 
+         Ex: https://docs.langchain.com/oss/python/integrations/chat/google_generative_ai
+         and we need a open api/gemini api key for llm model to run. --> goto respective site and login with any mail id and get the api key.
+
+
+Setup
+To access Google AI models you’ll need to create a Google Account, get a Google AI API key, and install the langchain-google-genai integration package.
+          
