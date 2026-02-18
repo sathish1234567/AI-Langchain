@@ -9,6 +9,11 @@ Modular LangChain + Gemini integration.
 Import and use get_model(), chat(), chat_with_system(), stream() from other modules,
 or run this file to demo (optionally pass a prompt as argument).
 """
+"""
+Modular LangChain + Gemini integration.
+Import and use get_model(), chat(), chat_with_system(), stream() from other modules,
+or run this file to demo (optionally pass a prompt as argument).
+"""
 import os
 import sys
 from dotenv import load_dotenv
@@ -16,7 +21,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def get_model(model_name="gemini-2.0-flash"):
+def get_model(model_name="gemini-2.5-flash"):
     """Return a Gemini chat model (uses GOOGLE_API_KEY from .env)."""
     from langchain_google_genai import ChatGoogleGenerativeAI
     api_key = os.getenv("GOOGLE_API_KEY")
