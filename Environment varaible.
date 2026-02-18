@@ -1,0 +1,28 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+if GOOGLE_API_KEY:
+    print(f"GOOGLE_API_KEY loaded: {GOOGLE_API_KEY[:10]}...")
+else:
+    print("GOOGLE_API_KEY not found in .env")
+
+cd "c:\Users\sathish.b\Desktop\Python"; pip install python-dotenv; python py1.py
+
+How data load from .env file into the langchain?
+LangChain doesn’t read .env by itself. It expects API keys and other config to come from environment variables. You load .env into the environment (e.g. with python-dotenv), and LangChain reads from there.
+1. You load .env → env vars
+from dotenv import load_dotenvload_dotenv()  # reads .env and sets os.environ["GOOGLE_API_KEY"], etc.
+After this, os.getenv("GOOGLE_API_KEY") and os.environ["GOOGLE_API_KEY"] are set.
+2. LangChain reads from the environment
+When you create a LangChain client, it usually looks up a specific env var name (e.g. GOOGLE_API_KEY for Google). For example:
+Google: GOOGLE_API_KEY
+OpenAI: OPENAI_API_KEY
+So the flow is:
+Your code: load_dotenv() → .env contents are copied into os.environ.
+LangChain (or the underlying SDK): Uses os.getenv("GOOGLE_API_KEY") or similar when you instantiate the client. No direct .env access; it only sees environment variables.
+3. Typical usage
+from dotenv import load_dotenvfrom langchain_google_genai import ChatGoogleGenerativeAIload_dotenv()  # load .env into os.environ# LangChain reads GOOGLE_API_KEY from the environmentmodel = ChatGoogleGenerativeAI(model="gemini-pro")# under the hood it uses something like os.getenv("GOOGLE_API_KEY")
+So: LangChain doesn’t “read the .env data” — it reads environment variables. You use something like python-dotenv to load .env into the environment first; then LangChain uses those variables automatically.
