@@ -1,3 +1,5 @@
+create .env file -- save all keys at here
+
 import os
 from dotenv import load_dotenv
 
